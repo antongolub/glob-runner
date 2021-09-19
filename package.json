@@ -1,0 +1,15 @@
+{
+  "name": "glob-runner",
+  "version": "0.0.0",
+  "description": "Tiny helper to search and exec js files by glob pattern",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "glob",
+    "exec"
+  ],
+  "author": "Anton Golub <antongolub@antongolub.com>",
+  "license": "MIT"
+}
