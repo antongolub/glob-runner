@@ -18,10 +18,10 @@ export const run = (argv= process.argv.slice(2), cb = () => {}) => {
 
   if (tests.length === 0) {
     console.log(`No match found: ${argv}`)
-    cb()
+    return Promise.resolve(cb())
 
   } else {
-    tests.reduce((r, module) =>
+    return tests.reduce((r, module) =>
         r.then(() =>
           fs.promises.readFile(module, {encoding: 'utf8'}).then(c => {
             const engineDirective = (engineDirectiveRe.exec(c) || [])[1]
