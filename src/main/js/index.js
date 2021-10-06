@@ -9,9 +9,9 @@ const nodeVersion = process.version
 
 export const engineDirectiveRe = /^\/\/\s*node-engine\s+(.+)\n/
 
-export const run = (argv= process.argv.slice(2), cb = () => {}) => {
+export const run = (argv= process.argv.slice(2), cwd = process.cwd(), cb = () => {}) => {
   const tests = globbySync(argv, {
-    cwd: process.cwd(),
+    cwd,
     onlyFiles: true,
     absolute: true,
   })
