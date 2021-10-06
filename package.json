@@ -3,13 +3,25 @@
   "version": "0.0.0",
   "description": "Tiny helper to search and exec js files by glob pattern",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:unit": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --experimental-modules\" npx jest",
+    "test:it": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --experimental-modules\" node src/main/js/run.js src/test/**/*.it.js",
+    "test": "yarn test:unit"
   },
   "keywords": [
     "glob",
     "exec"
   ],
   "author": "Anton Golub <antongolub@antongolub.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "globby": "^12.0.2",
+    "semver": "^7.3.5"
+  },
+  "devDependencies": {
+    "@jest/globals": "^27.2.4",
+    "cross-env": "^7.0.3",
+    "jest": "^27.2.4"
+  }
 }

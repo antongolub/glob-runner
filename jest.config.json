@@ -1,0 +1,24 @@
+{
+  "testEnvironment": "node",
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "<rootDir>/src/main/**/*.js"
+  ],
+  "coveragePathIgnorePatterns": [
+  ],
+  "testMatch": [
+    "<rootDir>/src/test/js/**/*.js"
+  ],
+  "testPathIgnorePatterns": [
+    "/node_modules/",
+    "<rootDir>/src/test/fixtures",
+    "<rootDir>/src/test/js/.+it\\.js"
+  ],
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "node",
+    "mjs",
+    "cjs"
+  ]
+}
