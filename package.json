@@ -7,6 +7,9 @@
   "exports": {
     ".": "./target/es6/index.js"
   },
+  "bin": {
+    "glob-runner": "./target/es6/run.js"
+  },
   "scripts": {
     "test:unit": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --experimental-modules\" npx jest",
     "test:it": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --experimental-modules\" node src/main/js/run.js src/test/**/*.it.js",
