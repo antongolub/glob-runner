@@ -2,12 +2,18 @@
   "name": "glob-runner",
   "version": "0.0.0",
   "description": "Tiny helper to search and exec js files by glob pattern",
-  "main": "index.js",
+  "main": "target/es6/index.js",
   "type": "module",
+  "exports": {
+    ".": "./target/es6/index.js"
+  },
   "scripts": {
     "test:unit": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --experimental-modules\" npx jest",
     "test:it": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --experimental-modules\" node src/main/js/run.js src/test/**/*.it.js",
-    "test": "yarn test:unit"
+    "test": "yarn test:unit",
+    "build:es6": "cpy src/main/js/ target/es6/",
+    "build": "yarn build:es6 && yarn docs",
+    "docs": "cpy ./README.md ./docs/README.md"
   },
   "keywords": [
     "glob",
@@ -21,6 +27,7 @@
   },
   "devDependencies": {
     "@jest/globals": "^27.2.4",
+    "cpy-cli": "^3.1.1",
     "cross-env": "^7.0.3",
     "jest": "^27.2.4"
   }
