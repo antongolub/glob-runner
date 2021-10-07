@@ -11,11 +11,11 @@ yarn add glob-runner
 ```js
 import { run } from 'glob-runner'
 
-const pattern = 'src/test/**/*.it.js' // required
-const cwd = process.cwd()             // optional
-const cb = () => {}                   // optional
-
-await run(pattern, cwd, cb)
+await run({
+  pattern: 'src/test/**/*.it.js', // required
+  cwd: process.cwd(),             // optional
+  cb: () => {},                   // optional
+})
 
 // Skipped /gh/glob-runner/src/test/js/index.cjs.it.js. v16.7.0 does not satisfy ^12.20.0
 // Loading /gh/glob-runner/src/test/js/index.mjs.it.js...
