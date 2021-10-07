@@ -5,19 +5,22 @@ import semver from 'semver'
 import url from 'url'
 import { createRequire } from 'module'
 
-const nodeVersion = process.version
-
 export const engineDirectiveRe = /^\/\/\s*node-engine\s+(.+)\n/
 
-export const run = (argv= process.argv.slice(2), cwd = process.cwd(), cb = () => {}) => {
-  const tests = globbySync(argv, {
+export const run = ({
+  pattern= process.argv.slice(2),
+  cwd = process.cwd(),
+  cb = () => {},
+  nodeVersion = process.version,
+}) => {
+  const tests = globbySync(pattern, {
     cwd,
     onlyFiles: true,
     absolute: true,
   })
 
   if (tests.length === 0) {
-    console.log(`No match found: ${argv}`)
+    console.log(`No match found: ${pattern}`)
     return Promise.resolve(cb())
 
   } else {
@@ -45,4 +48,3 @@ export const run = (argv= process.argv.slice(2), cwd = process.cwd(), cb = () =>
       .then(cb)
   }
 }
-
