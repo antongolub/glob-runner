@@ -1,3 +1,3 @@
-var foo = 'bar'
+const foo = 'bar'
 
 module.exports = { foo }

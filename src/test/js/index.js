@@ -1,6 +1,7 @@
-import {run} from '../../main/js'
 import {jest} from '@jest/globals'
 import process from 'process'
+
+import {run} from '../../main/js'
 
 describe('glob-runner', () => {
   const spiedConsole = jest.spyOn(console, 'log')
