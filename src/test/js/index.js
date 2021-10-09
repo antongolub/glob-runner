@@ -1,7 +1,7 @@
-import {jest} from '@jest/globals'
+import { jest } from '@jest/globals'
 import process from 'process'
 
-import {run} from '../../main/js'
+import { run } from '../../main/js'
 
 describe('glob-runner', () => {
   const spiedConsole = jest.spyOn(console, 'log')
@@ -17,12 +17,16 @@ describe('glob-runner', () => {
       cwd,
       cb: () => {
         expect(spiedConsole).toHaveBeenCalledTimes(3)
-        expect(spiedConsole).toHaveBeenCalledWith(expect.stringMatching(/^Skipped/))
-        expect(spiedConsole).toHaveBeenCalledWith(expect.stringMatching(/^Loading/))
+        expect(spiedConsole).toHaveBeenCalledWith(
+          expect.stringMatching(/^Skipped/),
+        )
+        expect(spiedConsole).toHaveBeenCalledWith(
+          expect.stringMatching(/^Loading/),
+        )
         expect(spiedConsole).toHaveBeenLastCalledWith('Done')
 
         done()
-      }
+      },
     })
   })
 
@@ -37,7 +41,7 @@ describe('glob-runner', () => {
         expect(spiedConsole).toHaveBeenLastCalledWith('Done')
 
         done()
-      }
+      },
     })
   })
 
@@ -45,12 +49,14 @@ describe('glob-runner', () => {
     run({
       pattern: ['src/not-found/*.js'],
       cwd,
-      cb:() => {
+      cb: () => {
         expect(spiedConsole).toHaveBeenCalledTimes(1)
-        expect(spiedConsole).toHaveBeenLastCalledWith('No match found: src/not-found/*.js')
+        expect(spiedConsole).toHaveBeenLastCalledWith(
+          'No match found: src/not-found/*.js',
+        )
 
         done()
-      }
+      },
     })
   })
 })
