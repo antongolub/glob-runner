@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/antongolub/glob-runner/compare/v1.0.0...v1.0.1) (2021-10-09)
+
+
+### Bug Fixes
+
+* **types:** fix libdefs ([a0439f2](https://github.com/antongolub/glob-runner/commit/a0439f2141d81ad78e74a9671b00ed27a86a6126))
+
 # 1.0.0 (2021-10-09)
 
 
