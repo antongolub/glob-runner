@@ -17,6 +17,7 @@
   "scripts": {
     "lint": "eslint src/**/*.{cjs,mjs,js}",
     "lint:fix": "yarn lint --fix",
+    "format": "prettier --write \"src/**/*.{cjs,mjs,js}\"",
     "test:unit": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --experimental-modules\" npx jest",
     "test:it": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --experimental-modules\" node src/main/js/run.js src/test/**/*.it.js",
     "test": "yarn lint && yarn test:unit",
