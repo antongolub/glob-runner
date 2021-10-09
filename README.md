@@ -29,5 +29,14 @@ glob-runner src/test/**/*.it.js
 # Done
 ```
 
+**Node engine**
+You can describe the Node engine requirements using a special 
+annotation at the beginning of the file:
+```js
+// node-engine ^12.20.0 || ^14.13.1 || >=16.0.0
+
+require('test-code-goes-below')
+```
+
 ### License
 [MIT](./LICENSE)
