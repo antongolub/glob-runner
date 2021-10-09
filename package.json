@@ -1,6 +1,6 @@
 {
   "name": "glob-runner",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Tiny helper to search and exec js files by glob pattern",
   "main": "target/es6/index.js",
   "type": "module",

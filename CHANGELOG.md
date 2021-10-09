@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/antongolub/glob-runner/compare/v1.0.1...v1.0.2) (2021-10-09)
+
+
+### Bug Fixes
+
+* add bin prefix ([03a7ba8](https://github.com/antongolub/glob-runner/commit/03a7ba84811e0f529b36db4cb3fc867a999ab288))
+
 ## [1.0.1](https://github.com/antongolub/glob-runner/compare/v1.0.0...v1.0.1) (2021-10-09)
 
 
