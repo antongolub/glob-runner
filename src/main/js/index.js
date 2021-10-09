@@ -14,7 +14,7 @@ export const run = ({
     /* noop */
   },
   nodeVersion = process.version,
-}) => {
+} = {}) => {
   const tests = globbySync(pattern, {
     cwd,
     onlyFiles: true,
