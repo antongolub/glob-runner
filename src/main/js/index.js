@@ -1,16 +1,16 @@
 import fs from 'fs'
 import {globbySync} from 'globby'
+import { createRequire } from 'module'
 import process from 'process'
 import semver from 'semver'
 import url from 'url'
-import { createRequire } from 'module'
 
 export const engineDirectiveRe = /^\/\/\s*node-engine\s+(.+)\n/
 
 export const run = ({
   pattern= process.argv.slice(2),
   cwd = process.cwd(),
-  cb = () => {},
+  cb = () => { /* noop */ },
   nodeVersion = process.version,
 }) => {
   const tests = globbySync(pattern, {
@@ -42,8 +42,8 @@ export const run = ({
             return import(fileUrl)
           })
         )
-
-      , Promise.resolve())
+        , Promise.resolve()
+      )
       .then(() => console.log('Done'))
       .then(cb)
   }
