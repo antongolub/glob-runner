@@ -1,7 +1,7 @@
 {
   "name": "glob-runner",
   "version": "1.0.2",
-  "description": "Tiny helper to search and exec js files by glob pattern with optional Node.js requirements",
+  "description": "Tiny helper to search and exec js files by glob pattern with optional Node.js version restrictions",
   "main": "target/es6/index.js",
   "type": "module",
   "exports": {
@@ -50,10 +50,10 @@
     "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-config-qiwi": "^1.13.6",
+    "eslint-config-qiwi": "^1.13.7",
     "jest": "^27.2.5",
     "prettier": "^2.4.1",
-    "prettier-config-qiwi": "^1.4.2"
+    "prettier-config-qiwi": "^1.4.3"
   },
   "resolutions": {
     "**/globby/fast-glob": "^3.2.7",
