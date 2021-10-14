@@ -48,7 +48,7 @@ so your script may look like:
 ```js
 // node-engine >=16.0.0
 
-import {read} from 'node:fs'
+const {read} = require('node:fs')
 
 read('/foo/bar')
 ```
