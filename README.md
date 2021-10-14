@@ -48,5 +48,9 @@ import {read} from 'node:fs'
 read('/foo/bar')
 ```
 
+
+## Alternatives
+* https://github.com/fahad19/glob-run
+
 ### License
 [MIT](./LICENSE)
