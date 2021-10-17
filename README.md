@@ -35,7 +35,7 @@ glob-runner src/test/**/*.it.js
 ```
 
 #### Node engine 
-Every running script can define its own Node.js engine requirements
+Any running script can define its own Node.js engine requirements
 through special annotation at the beginning of the file:
 ```js
 // node-engine ^12.20.0 || ^14.13.1 || >=16.0.0
