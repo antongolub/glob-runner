@@ -35,7 +35,7 @@ jobs:
         run: yarn build
 
       - name: Save target to artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: target
           retention-days: 1
@@ -73,7 +73,7 @@ jobs:
 
       - name: Push coverage to artifact
         if: github.ref == 'refs/heads/master'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: target
           retention-days: 1
