@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/antongolub/glob-runner/compare/v1.0.5...v1.0.6) (2022-03-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency globby to v13 ([9208ad9](https://github.com/antongolub/glob-runner/commit/9208ad9d82ad7f233d8dc6df07282f53601d9c40))
+
 ## [1.0.5](https://github.com/antongolub/glob-runner/compare/v1.0.4...v1.0.5) (2021-10-17)
 
 ## [1.0.4](https://github.com/antongolub/glob-runner/compare/v1.0.3...v1.0.4) (2021-10-14)
