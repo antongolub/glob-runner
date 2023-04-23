@@ -50,7 +50,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-config-qiwi": "^1.13.7",
+    "eslint-config-qiwi": "^2.0.0",
     "jest": "^27.2.5",
     "prettier": "^2.4.1",
     "prettier-config-qiwi": "^2.0.0"
