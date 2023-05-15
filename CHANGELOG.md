@@ -1,3 +1,11 @@
+## [2.0.0](https://github.com/antongolub/glob-runner/compare/v1.0.6...v2.0.0) (2023-05-15)
+
+### Features
+* feat: replace globby with fast-glob to support wide range nodejs >= 10 ([2d5305a](https://github.com/antongolub/glob-runner/commit/2d5305a3c0be779f5296c8db84b8b56106e0f93a))
+
+### BREAKING CHANGES
+* globby → fast-glob ([2d5305a](https://github.com/antongolub/glob-runner/commit/2d5305a3c0be779f5296c8db84b8b56106e0f93a))
+
 ## [1.0.6](https://github.com/antongolub/glob-runner/compare/v1.0.5...v1.0.6) (2022-03-27)
 
 

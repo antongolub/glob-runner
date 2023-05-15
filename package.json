@@ -1,6 +1,6 @@
 {
   "name": "glob-runner",
-  "version": "1.0.6",
+  "version": "2.0.0",
   "description": "Tiny helper to search and exec js files by glob pattern with optional Node.js version restrictions",
   "type": "module",
   "main": "target/esm/index.cjs",
