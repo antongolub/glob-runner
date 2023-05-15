@@ -1,13 +1,14 @@
 {
   "testEnvironment": "node",
+  "coverageDirectory": "target/coverage",
   "collectCoverage": true,
   "collectCoverageFrom": [
-    "<rootDir>/src/main/**/*.js"
+    "<rootDir>/src/main/**/*.cjs"
   ],
   "coveragePathIgnorePatterns": [
   ],
   "testMatch": [
-    "<rootDir>/src/test/js/**/*.js"
+    "<rootDir>/src/test/js/**/*.mjs"
   ],
   "testPathIgnorePatterns": [
     "/node_modules/",

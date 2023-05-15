@@ -6,5 +6,7 @@ declare module 'glob-runner' {
     cwd?: string,
     cb?: ICallable,
     nodeVersion?: string
+    parallel?: boolean
+    silent?: boolean
   }) => Promise<void>
 }
