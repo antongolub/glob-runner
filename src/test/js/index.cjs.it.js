@@ -1,7 +1,7 @@
-// node-engine ^12.20.0
+// node-engine >=10
 
-const assert = require('assert') // eslint-disable-line @typescript-eslint/no-var-requires
+const assert = require('assert')
 
-const m = require('../fixtures/es5-module.cjs') // eslint-disable-line @typescript-eslint/no-var-requires
+const m = require('../fixtures/es5-module.cjs')
 
 assert(typeof m.foo === 'string', 'foo is properly exported')
