@@ -103,13 +103,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Fetch deps
-        run: yarn
-
       - name: Integration tests
         if: matrix.node-version != '16' || matrix.os != 'ubuntu-22.04'
-        run: yarn test:it
+        run: |
+          yarn install --production --ignore-engines
+          yarn test:it
 
       - name: Full test suite
         if: matrix.node-version == '16' && matrix.os == 'ubuntu-22.04'
-        run: yarn test
+        run: |
+          yarn
+          yarn test
