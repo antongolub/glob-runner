@@ -3,16 +3,16 @@
   "version": "2.0.1",
   "description": "Tiny helper to search and exec js files by glob pattern with optional Node.js version restrictions",
   "type": "module",
-  "main": "target/esm/index.cjs",
+  "main": "./target/esm/index.cjs",
   "exports": {
     ".": "./target/esm/index.cjs"
   },
   "bin": {
     "glob-runner": "./target/esm/run.cjs"
   },
-  "types": "/target/esm/index.d.ts",
+  "types": "./target/esm/index.d.ts",
   "typescript": {
-    "definition": "/target/esm/index.d.ts"
+    "definition": "./target/esm/index.d.ts"
   },
   "dependencies": {
     "fast-glob": "^3.2.12",
@@ -40,7 +40,7 @@
   "scripts": {
     "format": "yarn test:lint --fix && prettier --write \"src/**/*.{cjs,mjs,js}\"",
     "test": "yarn test:lint && yarn test:unit",
-    "test:lint": "eslint src/**/*.{cjs,mjs,js}",
+    "test:lint": "eslint -c src/test/lint/.eslintrc.cjs src/**/*.{cjs,mjs,js}",
     "test:unit": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --experimental-modules\" npx jest",
     "test:it": "node src/main/js/run.cjs src/test/**/*.it.js",
     "build": "yarn build:esm && yarn build:docs",

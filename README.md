@@ -6,13 +6,13 @@ Tiny helper to search and exec js files by glob pattern with optional Node.js ve
 [![Test Coverage](https://api.codeclimate.com/v1/badges/b32153a28214edf1d06a/test_coverage)](https://codeclimate.com/github/antongolub/glob-runner/test_coverage)
 [![npm (tag)](https://img.shields.io/npm/v/glob-runner)](https://www.npmjs.com/package/glob-runner)
 
-### Install
+## Install
 ```shell
 yarn add glob-runner -D
 ```
 
-### Usage
-#### JS/TS
+## Usage
+### JS/TS API
 ```js
 import { run } from 'glob-runner'
 
@@ -31,14 +31,14 @@ await run({
 // Done
 ```
 
-#### CLI
+### CLI
 ```shell
 glob-runner src/test/**/*.it.js
 # Loading /gh/glob-runner/src/test/js/index.mjs.it.js...
 # Done
 ```
 
-#### Node engine 
+### Node engine 
 Any running script can define its own Node.js engine requirements
 through special annotation at the beginning of the file:
 ```js
@@ -57,9 +57,8 @@ const {read} = require('node:fs')
 read('/foo/bar')
 ```
 
-
 ## Alternatives
 * https://github.com/fahad19/glob-run
 
-### License
+## License
 [MIT](./LICENSE)
