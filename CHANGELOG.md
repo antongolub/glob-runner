@@ -1,3 +1,8 @@
+## [2.0.4](https://github.com/antongolub/glob-runner/compare/v2.0.3...v2.0.4) (2023-05-16)
+
+### Fixes & improvements
+* fix: add missing pkg.repo.url ref ([e263b3e](https://github.com/antongolub/glob-runner/commit/e263b3ec27d8e2eac974a507fbbdab836874ec13))
+
 ## [2.0.3](https://github.com/antongolub/glob-runner/compare/v2.0.2...v2.0.3) (2023-05-16)
 
 ### Fixes & improvements
