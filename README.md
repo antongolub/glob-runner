@@ -8,7 +8,7 @@ Tiny helper to search and exec js files by glob pattern with optional Node.js ve
 
 ### Install
 ```shell
-yarn add glob-runner
+yarn add glob-runner -D
 ```
 
 ### Usage
@@ -17,9 +17,13 @@ yarn add glob-runner
 import { run } from 'glob-runner'
 
 await run({
-  pattern: 'src/test/**/*.it.js', // required
-  cwd: process.cwd(),             // optional
-  cb: () => {},                   // optional
+  pattern: 'src/test/**/*.it.js', // pattern to load
+  cwd: '/foo/bar',                // process dir         process.cwd()
+  cb: () => {},                   // handler             noop
+  nodeVersion: '20.0.0',          // required nodejs     process.version
+  parallel: false,                // run in parallel     false
+  silent: false,                  // suppress logs       false
+  glob: fg,                       // glob API provider   fast-glob
 })
 
 // Skipped /gh/glob-runner/src/test/js/index.cjs.it.js. v16.7.0 does not satisfy ^12.20.0
