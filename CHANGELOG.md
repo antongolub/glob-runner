@@ -1,3 +1,8 @@
+## [2.0.3](https://github.com/antongolub/glob-runner/compare/v2.0.2...v2.0.3) (2023-05-16)
+
+### Fixes & improvements
+* fix: enable npm provenance ([ebd27a6](https://github.com/antongolub/glob-runner/commit/ebd27a6c281edcb40bb8115899e61dde98a42314))
+
 ## [2.0.2](https://github.com/antongolub/glob-runner/compare/v2.0.1...v2.0.2) (2023-05-16)
 
 ### Fixes & improvements
