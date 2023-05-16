@@ -1,63 +1,64 @@
+import assert from 'node:assert'
 import process from 'node:process'
+import {describe, it} from 'node:test'
 
-import { jest } from '@jest/globals'
-
-import { run } from '../../main/js'
+import { run } from '../../main/js/index.cjs'
 
 describe('glob-runner', () => {
-  const spiedConsole = jest.spyOn(console, 'log')
   const cwd = process.cwd()
+  const logger = {
+    log(...args) {
+      this.data.push(args)
+    },
+    data: [],
+    reset() {
+      this.data.length = 0
+    }
+  }
 
-  beforeEach(() => {
-    spiedConsole.mockReset()
-  })
-
-  it('loads test modules if found', (done) => {
+  it('loads test modules if found', (_, done) => {
     run({
       pattern: 'src/test/**/*.it.js',
       cwd,
       cb: () => {
-        expect(spiedConsole).toHaveBeenCalledTimes(3)
-        // expect(spiedConsole).toHaveBeenCalledWith(
-        //   expect.stringMatching(/^Skipped/),
-        // )
-        expect(spiedConsole).toHaveBeenCalledWith(
-          expect.stringMatching(/^Loading/),
-        )
-        expect(spiedConsole).toHaveBeenLastCalledWith('Done')
-
+        assert.equal(logger.data.length, 3)
+        assert(logger.data[1][0].startsWith('Loading'))
+        assert.equal(logger.data[2][0], 'Done')
+        logger.reset()
         done()
       },
+      logger,
     })
   })
 
-  it('skips running on nodejs version mismatch', (done) => {
+  it('skips running on nodejs version mismatch', (_, done) => {
     run({
       pattern: ['src/test/**/*.it.js'],
       cwd,
       nodeVersion: '8.0.0',
       cb: () => {
-        expect(spiedConsole).toHaveBeenCalledTimes(3)
-        expect(spiedConsole).nthCalledWith(2, expect.stringMatching(/^Skipped/))
-        expect(spiedConsole).toHaveBeenLastCalledWith('Done')
+        assert.equal(logger.data.length, 3)
+        assert(logger.data[1][0].startsWith('Skipped'))
+        assert.equal(logger.data[2][0], 'Done')
 
+        logger.reset()
         done()
       },
+      logger,
     })
   })
 
-  it('exits if no file found by pattern', (done) => {
+  it('exits if no file found by pattern', (_, done) => {
     run({
       pattern: ['src/not-found/*.js'],
       cwd,
       cb: () => {
-        expect(spiedConsole).toHaveBeenCalledTimes(1)
-        expect(spiedConsole).toHaveBeenLastCalledWith(
-          'No match found: src/not-found/*.js',
-        )
-
+        assert.equal(logger.data.length, 1)
+        assert.equal(logger.data[0][0], 'No match found: src/not-found/*.js')
+        logger.reset()
         done()
       },
+      logger,
     })
   })
 })
