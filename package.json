@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@jest/globals": "^29.5.0",
+    "concurrently": "^8.0.1",
     "cross-env": "^7.0.3",
     "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
@@ -39,11 +40,11 @@
   ],
   "scripts": {
     "format": "yarn test:lint --fix && prettier --write \"src/**/*.{cjs,mjs,js}\"",
-    "test": "yarn test:lint && yarn test:unit",
+    "test": "concurrently 'npm:test:*'",
     "test:lint": "eslint -c src/test/lint/.eslintrc.cjs src/**/*.{cjs,mjs,js}",
     "test:unit": "cross-env NODE_OPTIONS=\"--experimental-vm-modules --experimental-modules\" npx jest",
     "test:it": "node src/main/js/run.cjs src/test/**/*.it.js",
-    "build": "yarn build:esm && yarn build:docs",
+    "build": "concurrently 'npm:build:*'",
     "build:esm": "mkdir -p ./target/esm && cp -r src/main/js/ target/esm/",
     "build:docs": "mkdir -p ./target/docs && cp ./README.md ./target/docs/README.md"
   },
