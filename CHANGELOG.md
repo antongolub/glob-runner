@@ -1,3 +1,8 @@
+## [2.0.2](https://github.com/antongolub/glob-runner/compare/v2.0.1...v2.0.2) (2023-05-16)
+
+### Fixes & improvements
+* docs: formatting ([c80cf94](https://github.com/antongolub/glob-runner/commit/c80cf94908989e6e242a00fccb452e10dd5eba14))
+
 ## [2.0.1](https://github.com/antongolub/glob-runner/compare/v2.0.0...v2.0.1) (2023-05-16)
 
 ### Fixes & improvements
