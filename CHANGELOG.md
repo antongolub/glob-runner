@@ -1,3 +1,8 @@
+## [2.0.1](https://github.com/antongolub/glob-runner/compare/v2.0.0...v2.0.1) (2023-05-16)
+
+### Fixes & improvements
+* docs: update usage example ([88bdbd0](https://github.com/antongolub/glob-runner/commit/88bdbd0452446890d83be16f891a71febb876854))
+
 ## [2.0.0](https://github.com/antongolub/glob-runner/compare/v1.0.6...v2.0.0) (2023-05-15)
 
 ### Features
