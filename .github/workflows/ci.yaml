@@ -31,11 +31,17 @@ jobs:
             buildstamp.json
             renovate.json
 
-  test_push:
-    name: Test on push
+  push:
+    name: push
     needs: build
     if: github.event_name == 'push'
     runs-on: ubuntu-22.04
+    permissions:
+      checks: read
+      statuses: write
+      contents: write
+      packages: write
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -70,7 +76,7 @@ jobs:
       - name: Semantic Release
         if: github.ref == 'refs/heads/master'
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_USER: '@antongolub'
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GIT_AUTHOR_EMAIL: 'antongolub@antongolub.com'
@@ -79,10 +85,10 @@ jobs:
           GIT_COMMITTER_NAME: 'Anton Golub'
         run: npm_config_yes=true npx zx-semrel
 
-  test_pr:
+  pr:
     if: github.event_name == 'pull_request'
     needs: build
-    name: Test PR (Node v${{ matrix.node-version }}, OS ${{ matrix.os }})
+    name: PR (Node v${{ matrix.node-version }}, OS ${{ matrix.os }})
     strategy:
       matrix:
         os: [ windows-2019, ubuntu-22.04 ]
