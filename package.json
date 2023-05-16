@@ -54,5 +54,13 @@
     "run"
   ],
   "author": "Anton Golub <antongolub@antongolub.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antongolub/glob-runner"
+  },
+  "bugs": {
+    "url": "https://github.com/antongolub/glob-runner/issues"
+  },
+  "homepage": "https://github.com/antongolub/glob-runner#readme",
   "license": "MIT"
 }
