@@ -1,3 +1,12 @@
+## [2.1.0](https://github.com/antongolub/glob-runner/compare/v2.0.4...v2.1.0) (2023-05-19)
+
+### Fixes & improvements
+* fix: fix pkg assets ([131db9a](https://github.com/antongolub/glob-runner/commit/131db9a50a487da502801f5527306594320360d6))
+* perf: tweak up esm entrypoint ([aade93b](https://github.com/antongolub/glob-runner/commit/aade93b2a5329400a89c5a2061e33efad2c352cf))
+
+### Features
+* feat: use randomizer to ignore module caching ([17939b9](https://github.com/antongolub/glob-runner/commit/17939b90e016befaa3ec0c74b0c06ef4406a5e8b))
+
 ## [2.0.4](https://github.com/antongolub/glob-runner/compare/v2.0.3...v2.0.4) (2023-05-16)
 
 ### Fixes & improvements
