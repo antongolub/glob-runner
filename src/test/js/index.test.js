@@ -3,18 +3,20 @@ import { createRequire } from 'node:module'
 import { describe, it } from 'node:test'
 
 const require = createRequire(import.meta.url)
+const pattern = 'src/test/fixtures/*.it.js'
 const cases = [
   ['src/index (cjs)', require('../../main/js/index.cjs').run],
   ['src/index (mjs)', (await import('../../main/js/index.mjs')).run],
   ['target (cjs)', require('glob-runner').run],
   ['target (mjs)', (await import('glob-runner')).run],
-];
+]
 
 cases.forEach(([name, run]) => {
   describe(name, () => {
     const cwd = process.cwd()
     const logger = {
       log(...args) {
+        console.log(...args)
         this.data.push(args)
       },
       data: [],
@@ -25,7 +27,7 @@ cases.forEach(([name, run]) => {
 
     it('loads test modules if found', (_, done) => {
       run({
-        pattern: 'src/test/fixtures/*.it.js',
+        pattern,
         cwd,
         cb: () => {
           assert.equal(logger.data.length, 3)
@@ -38,9 +40,26 @@ cases.forEach(([name, run]) => {
       })
     })
 
+    it('works in parallel', (_, done) => {
+      run({
+        pattern,
+        cwd,
+        cb: () => {
+          assert.equal(logger.data.length, 3)
+          assert(logger.data[1][0].startsWith('Loading'))
+          assert.equal(logger.data[2][0], 'Done')
+          logger.reset()
+          done()
+        },
+        logger,
+        parallel: true,
+        silent: true,
+      })
+    })
+
     it('skips running on nodejs version mismatch', (_, done) => {
       run({
-        pattern: ['src/test/fixtures/*.it.js'],
+        pattern: [pattern],
         cwd,
         nodeVersion: '8.0.0',
         cb: () => {
@@ -69,5 +88,4 @@ cases.forEach(([name, run]) => {
       })
     })
   })
-
 })

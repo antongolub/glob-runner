@@ -14,12 +14,13 @@ const run = async ({
   pattern = process.argv.slice(2).filter((arg) => !arg.startsWith('--')),
   cwd = process.cwd(),
   cb = noop,
-  parallel = process.argv.includes('--parallel') || false,
-  silent = process.argv.includes('--silent') || false,
+  parallel = process.argv.includes('--parallel'),
+  silent = process.argv.includes('--silent'),
   nodeVersion = process.version,
   logger = silent ? { log: noop } : console,
   glob = fg,
 } = {}) => {
+  const allowEsm = semver.gte(nodeVersion, '12.20.0')
   const scripts = await glob(pattern, {
     cwd,
     onlyFiles: true,
@@ -37,7 +38,11 @@ const run = async ({
     }
     const contents = await fs.promises.readFile(script, { encoding: 'utf8' })
     const engines = (enginesPattern.exec(contents) || [])[1]
-    const fileUrl = url.pathToFileURL(script).toString()
+    const fileUrl = `${url
+      .pathToFileURL(script)
+      .toString()}?random=${Math.random().toString(36).slice(2)}`
+
+    delete require.cache[script]
 
     if (engines && !semver.satisfies(nodeVersion, engines)) {
       logger.log(
@@ -51,10 +56,7 @@ const run = async ({
       global.require = createRequire(fileUrl)
     }
 
-    return Promise.all([
-      r,
-      semver.gte(nodeVersion, '12.20.0') ? import(fileUrl) : require(script),
-    ])
+    return Promise.all([r, allowEsm ? import(fileUrl) : require(script)])
   }, Promise.resolve())
 
   logger.log('Done')

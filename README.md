@@ -21,8 +21,8 @@ await run({
   cwd: '/foo/bar',                // process dir         process.cwd()
   cb: () => {},                   // handler             noop
   nodeVersion: '20.0.0',          // required nodejs     process.version
-  parallel: false,                // run in parallel     false
-  silent: false,                  // suppress logs       false
+  parallel: true,                 // run in parallel     false
+  silent: true,                   // suppress logs       false
   glob: fg,                       // glob API provider   fast-glob
 })
 
