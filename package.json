@@ -3,16 +3,21 @@
   "version": "2.0.4",
   "description": "Tiny helper to search and exec js files by glob pattern with optional Node.js version restrictions",
   "type": "module",
-  "main": "./target/esm/index.cjs",
+  "main": "./target/js/index.cjs",
   "exports": {
-    ".": "./target/esm/index.cjs"
+    ".": {
+      "types": "./target/dts/index.d.ts",
+      "import": "./target/js/index.mjs",
+      "require": "./target/js/index.cjs",
+      "default": "./target/js/index.cjs"
+    }
   },
   "bin": {
-    "glob-runner": "./target/esm/run.cjs"
+    "glob-runner": "./target/js/run.cjs"
   },
-  "types": "./target/esm/index.d.ts",
+  "types": "./target/dts/index.d.ts",
   "typescript": {
-    "definition": "./target/esm/index.d.ts"
+    "definition": "./target/dts/index.d.ts"
   },
   "dependencies": {
     "fast-glob": "^3.2.12",
@@ -41,10 +46,11 @@
     "format": "yarn test:lint --fix && prettier --write \"src/**/*.{cjs,mjs,js}\"",
     "test": "concurrently 'npm:test:*'",
     "test:lint": "eslint -c src/test/lint/.eslintrc.cjs src/**/*.{cjs,mjs,js}",
-    "test:unit": "c8 -r lcov -r text -o target/coverage node --experimental-specifier-resolution=node ./src/test/js/index.mjs",
-    "test:it": "node src/main/js/run.cjs src/test/**/*.it.js",
+    "test:unit": "c8 -r lcov -r text -o target/coverage node --experimental-specifier-resolution=node ./src/test/js/index.test.js",
+    "test:it": "node src/main/js/run.cjs src/test/fixtures/*.it.js",
     "build": "concurrently 'npm:build:*'",
-    "build:esm": "mkdir -p ./target/esm && cp -r src/main/js/ target/esm/",
+    "build:dts": "mkdir -p ./target/dts && cp -r src/main/ts/ target/dts/",
+    "build:js": "mkdir -p ./target/js && cp -r src/main/js/ target/js/",
     "build:docs": "mkdir -p ./target/docs && cp ./README.md ./target/docs/README.md"
   },
   "prettier": "prettier-config-qiwi",

@@ -2,6 +2,6 @@
 
 const assert = require('assert')
 
-const m = require('../fixtures/es5-module.cjs')
+const m = require('./es5-module.cjs')
 
 assert(typeof m.foo === 'string', 'foo is properly exported')
