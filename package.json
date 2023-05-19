@@ -39,7 +39,8 @@
   "files": [
     "README.md",
     "CHANGELOG.md",
-    "target/esm",
+    "target/dts",
+    "target/js",
     "buildstamp.json"
   ],
   "scripts": {
@@ -49,8 +50,8 @@
     "test:unit": "c8 -r lcov -r text -o target/coverage node --experimental-specifier-resolution=node ./src/test/js/index.test.js",
     "test:it": "node src/main/js/run.cjs src/test/fixtures/*.it.js",
     "build": "concurrently 'npm:build:*'",
-    "build:dts": "mkdir -p ./target/dts && cp -r src/main/ts/ target/dts/",
-    "build:js": "mkdir -p ./target/js && cp -r src/main/js/ target/js/",
+    "build:dts": "mkdir -p ./target/dts && cp -R src/main/ts/. target/dts/.",
+    "build:js": "mkdir -p ./target/js && cp -R src/main/js/. target/js/.",
     "build:docs": "mkdir -p ./target/docs && cp ./README.md ./target/docs/README.md"
   },
   "prettier": "prettier-config-qiwi",
