@@ -2,8 +2,8 @@
 Tiny helper to search and exec js files by glob pattern with optional Node.js version restrictions
 
 [![CI](https://github.com/antongolub/glob-runner/workflows/CI/badge.svg)](https://github.com/antongolub/glob-runner/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/b32153a28214edf1d06a/maintainability)](https://codeclimate.com/github/antongolub/glob-runner/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/b32153a28214edf1d06a/test_coverage)](https://codeclimate.com/github/antongolub/glob-runner/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/0d1cb1c475d057100c09/maintainability)](https://codeclimate.com/github/antongolub/glob-runner/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/0d1cb1c475d057100c09/test_coverage)](https://codeclimate.com/github/antongolub/glob-runner/test_coverage)
 [![npm (tag)](https://img.shields.io/npm/v/glob-runner)](https://www.npmjs.com/package/glob-runner)
 
 ## Install
