@@ -1,3 +1,8 @@
+## [2.1.1](https://github.com/antongolub/glob-runner/compare/v2.1.0...v2.1.1) (2023-07-01)
+
+### Fixes & improvements
+* fix(deps): update dependency semver to v7.5.2 [security] ([8e9eeb0](https://github.com/antongolub/glob-runner/commit/8e9eeb08653a3ccdfdb41be6702cb467c5bddd55))
+
 ## [2.1.0](https://github.com/antongolub/glob-runner/compare/v2.0.4...v2.1.0) (2023-05-19)
 
 ### Fixes & improvements
